@@ -2,7 +2,7 @@ package com.BibleQuote.bqtj.managers.bookmarks;
 
 import com.BibleQuote.bqtj.entity.BibleReference;
 import com.BibleQuote.bqtj.managers.bookmarks.repository.IBookmarksRepository;
-import com.BibleQuote.bqtj.managers.bookmarks.repository.dbBookmarksTagsRepository;
+//import com.BibleQuote.bqtj.managers.bookmarks.repository.dbBookmarksTagsRepository;
 import com.BibleQuote.bqtj.managers.tags.Tag;
 import com.BibleQuote.bqtj.managers.tags.repository.ITagRepository;
 //import com.BibleQuote.bqtj.managers.tags.repository.dbTagRepository;
@@ -34,7 +34,7 @@ public class BookmarksManager {
 	public void add(String OSISLink, String link, String tags) {
 		long bmID = add(OSISLink, link);
 		ArrayList<Long> tagIDs = getTagsIDs(tags);
-		new dbBookmarksTagsRepository().add(bmID, tagIDs);
+//		new dbBookmarksTagsRepository().add(bmID, tagIDs);
 	}
 
 	public void delete(Bookmark bookmark) {

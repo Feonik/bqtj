@@ -3,7 +3,7 @@ package com.BibleQuote.bqtj.utils;
 import com.BibleQuote.bqtj.CoreContext;
 import com.BibleQuote.bqtj.managers.bookmarks.Bookmark;
 import com.BibleQuote.bqtj.managers.bookmarks.BookmarksManager;
-import com.BibleQuote.bqtj.managers.bookmarks.repository.dbBookmarksRepository;
+//import com.BibleQuote.bqtj.managers.bookmarks.repository.dbBookmarksRepository;
 import com.BibleQuote.bqtj.managers.bookmarks.repository.prefBookmarksRepository;
 
 import java.io.*;
@@ -75,11 +75,11 @@ public abstract class UpdateManager {
 
 	private static void convertBookmarks_59() {
 		Log.d(TAG, "Convert bookmarks");
-		BookmarksManager newBM = new BookmarksManager(new dbBookmarksRepository());
+//		BookmarksManager newBM = new BookmarksManager(new dbBookmarksRepository());
 		ArrayList<Bookmark> bookmarks = new BookmarksManager(new prefBookmarksRepository()).getAll();
-		for (Bookmark curr : bookmarks) {
-			newBM.add(curr.OSISLink, curr.humanLink);
-		}
+//		for (Bookmark curr : bookmarks) {
+//			newBM.add(curr.OSISLink, curr.humanLink);
+//		}
 	}
 
 	protected abstract void updateBuiltInModules();

@@ -3,7 +3,7 @@ package com.BibleQuote.bqtj;
 
 import com.BibleQuote.bqtj.managers.Librarian;
 import com.BibleQuote.bqtj.managers.bookmarks.repository.IBookmarksRepository;
-import com.BibleQuote.bqtj.managers.bookmarks.repository.dbBookmarksRepository;
+//import com.BibleQuote.bqtj.managers.bookmarks.repository.dbBookmarksRepository;
 import com.BibleQuote.bqtj.utils.LogTxt;
 import com.BibleQuote.bqtj.utils.PreferenceHelper;
 import com.BibleQuote.bqtj.utils.UpdateManager;
@@ -62,7 +62,8 @@ public abstract class CoreContext {
 
 	public IBookmarksRepository getBookmarksRepository() {
 		//return new prefBookmarksRepository();
-		return new dbBookmarksRepository();
+//		return new dbBookmarksRepository();
+		return null;
 	}
 
 
