@@ -21,23 +21,35 @@ public abstract class UpdateManager {
 
 	protected final static String TAG = "UpdateManager";
 
-	// TODO static + all static fields
-
 
 	public void Init() {
 
-		// Инициализация каталога программы
-		File dir_modules = new File(DataConstants.FS_MODULES_PATH);
-		if (!dir_modules.exists()) {
-			Log.i(TAG, String.format("Create directory %1$s", dir_modules));
-			dir_modules.mkdirs();
+		// Инициализация каталога модулей
+		File dirModules = new File(DataConstants.FS_MODULES_PATH);
+		if (!dirModules.exists()) {
+			Log.i(TAG, String.format("Create directory %1$s", dirModules));
+			dirModules.mkdirs();
 		}
 
-		// Инициализация каталога базы данных настроек
+		// Инициализация каталога настроек
 		File dirPreferences = new File(DataConstants.DB_PREFERENCES_PATH);
 		if (!dirPreferences.exists()) {
 			Log.i(TAG, String.format("Create directory %1$s", dirPreferences));
 			dirPreferences.mkdirs();
+		}
+
+		// Инициализация каталога истории
+		File dirHistory = new File(DataConstants.HISTORY_PATH);
+		if (!dirHistory.exists()) {
+			Log.i(TAG, String.format("Create directory %1$s", dirHistory));
+			dirHistory.mkdirs();
+		}
+
+		// Инициализация каталога кэша
+		File dirCache = new File(DataConstants.CACHE_PATH);
+		if (!dirCache.exists()) {
+			Log.i(TAG, String.format("Create directory %1$s", dirCache));
+			dirCache.mkdirs();
 		}
 
 		int currVersionCode = PreferenceHelper.getAppVersionCode();

@@ -40,7 +40,7 @@ public class LogTxt {
 	 */
 	public static void Init(CoreContext coreContext) {
 
-		logFile = new File(DataConstants.APP_DATA_PATH, "log.txt");
+		logFile = new File(DataConstants.APP_DATA_PATH, DataConstants.LOG_FILE_NAME);
 		if (logFile.exists()) {
 			logFile.delete();
 		}

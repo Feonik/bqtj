@@ -21,57 +21,52 @@ public final class DataConstants {
 
 	// Internal Device Memory
 	public static final String APP_PACKAGE_DIR_NAME = "com.BibleQuote";
-
-
 	// External Device Memory
 	public static final String APP_DIR_NAME = "BibleQuote";
-
-
-	// Caches
-	private static final File APP_CACHE_DIR =
-			CoreContext.getCoreContext().getCacheDir();
-
-//	private static final String APP_CACHE_PATH = APP_DATA_PATH
-//			+ File.separator + "cache";
-
-	public static final String LIBRARY_CACHE_FILE_NAME = "library.cache";
-	public static final String HISTORY_FILE_NAME = "history.dat";
-
-
-	public static final String LOG_FILE_NAME = "log.txt";
-
 
 	public static final String APP_DATA_PATH =
 			CoreContext.getCoreContext().getAppDataPath();
 
 
-	// Files
-	private static final String FS_MODULES_DIR_NAME = "modules";
+	// Log
+	public static final String LOG_FILE_NAME = "log.txt";
+
+
+	// Caches
+	public static final String CACHE_DIR_NAME = "cache";
+	public static final String CACHE_PATH =
+			APP_DATA_PATH + File.separator + CACHE_DIR_NAME;
+
+	public static final String LIBRARY_CACHE_FILE_NAME = "library.cache";
+
+
+	// History
+	public static final String HISTORY_DIR_NAME = "history";
+	public static final String HISTORY_FILE_NAME = "history.dat";
+	public static final String HISTORY_PATH =
+			APP_DATA_PATH + File.separator + HISTORY_DIR_NAME;
+
+
+	// Modules
+	public static final String FS_MODULES_DIR_NAME = "modules";
 	public static final String FS_MODULE_INI_FILE_NAME = "bibleqt.ini";
-
 	public static final String FS_MODULES_PATH =
-			CoreContext.getCoreContext().getAppDataPath()
-			+ File.separator + FS_MODULES_DIR_NAME;
+			APP_DATA_PATH + File.separator + FS_MODULES_DIR_NAME;
 
 
-	// Databases
-	private static final String DB_DATA_DIR_NAME = "data";
+	// Library database
+	public static final String DB_DATA_DIR_NAME = "data";
 	//	public static final String DB_LIBRARY_FILE_NAME = "library.db";
 	public static final String DB_LIBRARY_FILE_NAME = "library";
-
 	public static final String DB_DATA_PATH =
-			CoreContext.getCoreContext().getAppDataPath()
-			+ File.separator + DB_DATA_DIR_NAME;
+			APP_DATA_PATH + File.separator + DB_DATA_DIR_NAME;
 
 
 	// Preferences
-	private static final String DB_PREFERENCES_DIR_NAME = "preferences";
+	public static final String DB_PREFERENCES_DIR_NAME = "preferences";
 	public static final String DB_PREFERENCES_FILE_NAME = "preferences";
-
 	public static final String DB_PREFERENCES_PATH =
-			CoreContext.getCoreContext().getAppDataPath()
-			+ File.separator + DB_PREFERENCES_DIR_NAME;
-
+			APP_DATA_PATH + File.separator + DB_PREFERENCES_DIR_NAME;
 	public static final String DB_PREFERENCES_URL = "jdbc:hsqldb:file:"
 			+ DB_PREFERENCES_PATH + File.separator	+ DB_PREFERENCES_FILE_NAME;
 

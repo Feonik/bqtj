@@ -38,7 +38,8 @@ public class LibraryController {
 	public static LibraryController create(CoreContext coreContext) {
 		String libraryPath = DataConstants.FS_MODULES_PATH;
 
-		CacheContext cacheContext = new CacheContext(coreContext.getCacheDir(), DataConstants.LIBRARY_CACHE_FILE_NAME);
+		CacheContext cacheContext = new CacheContext(DataConstants.CACHE_PATH,
+				DataConstants.LIBRARY_CACHE_FILE_NAME);
 		CacheModuleController<FsModule> cache = new CacheModuleController<FsModule>(cacheContext);
 
 		LibraryContext libraryContext = new FsLibraryContext(new File(libraryPath), coreContext, cache);

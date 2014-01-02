@@ -11,7 +11,7 @@ import com.j256.ormlite.table.DatabaseTable;
  * To change this template use File | Settings | File Templates.
  */
 
-@DatabaseTable(tableName = "PrefString")
+@DatabaseTable(tableName = "preferencesstring")
 class PrefString extends PrefT<String> {
 
 	@DatabaseField(id = true)

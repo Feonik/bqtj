@@ -98,7 +98,7 @@ public abstract class CoreContext {
 
 	public abstract String getAppDataPath();
 
-	public abstract File getCacheDir();
+	public abstract File getSystemCacheDir();
 
 	protected abstract UpdateManager getUpdateManager();
 

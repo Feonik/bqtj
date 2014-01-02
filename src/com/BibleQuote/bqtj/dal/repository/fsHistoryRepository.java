@@ -21,6 +21,7 @@
 
 package com.BibleQuote.bqtj.dal.repository;
 
+import com.BibleQuote.bqtj.utils.DataConstants;
 import com.BibleQuote.bqtj.utils.Log;
 import com.BibleQuote.bqtj.entity.ItemList;
 import com.BibleQuote.bqtj.exceptions.FileAccessException;
@@ -32,17 +33,17 @@ import java.util.LinkedList;
 public class fsHistoryRepository implements IHistoryRepository {
 	private File dirPath;
 
-	// TODO historyFileName to DataConstants
-	private final String historyFileName = "history.dat";
 	private final String TAG = "fsHistoryRepository";
 
-	public fsHistoryRepository(File file) {
-		this.dirPath = file;
+	public fsHistoryRepository(String historyPath) {
+		this.dirPath = new File(historyPath);
 	}
 
 	public void save(LinkedList<ItemList> list) {
 		try {
-			FileOutputStream fStr = new FileOutputStream(new File(dirPath, historyFileName));
+			FileOutputStream fStr = new FileOutputStream(
+					new File(dirPath, DataConstants.HISTORY_FILE_NAME));
+
 			ObjectOutputStream out = new ObjectOutputStream(fStr);
 			out.writeObject(list);
 			out.close();
@@ -54,7 +55,8 @@ public class fsHistoryRepository implements IHistoryRepository {
 	@SuppressWarnings("unchecked")
 	public LinkedList<ItemList> load() throws FileAccessException {
 		try {
-			FileInputStream fStr = new FileInputStream(new File(dirPath, historyFileName));
+			FileInputStream fStr = new FileInputStream(new File(dirPath,
+					DataConstants.HISTORY_FILE_NAME));
 			ObjectInputStream out = new ObjectInputStream(fStr);
 			LinkedList<ItemList> list = (LinkedList<ItemList>) out.readObject();
 			out.close();

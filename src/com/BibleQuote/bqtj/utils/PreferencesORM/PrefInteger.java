@@ -11,7 +11,7 @@ import com.j256.ormlite.table.DatabaseTable;
  * To change this template use File | Settings | File Templates.
  */
 
-@DatabaseTable(tableName = "PrefInteger")
+@DatabaseTable(tableName = "preferencesinteger")
 class PrefInteger extends PrefT<Integer> {
 
 	@DatabaseField(id = true)

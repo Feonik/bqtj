@@ -10,8 +10,8 @@ public class CacheContext {
 	private File cacheDir = null;
 	private String cacheName;
 
-	public CacheContext(File cacheDir, String cacheName) {
-		this.cacheDir = cacheDir;
+	public CacheContext(String cachePath, String cacheName) {
+		this.cacheDir = new File(cachePath);
 		this.cacheName = cacheName;
 	}
 

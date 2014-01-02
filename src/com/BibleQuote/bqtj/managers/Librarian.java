@@ -76,8 +76,9 @@ public class Librarian {
 
 		LogTxt.i(TAG, "Create history manager and repository");
 
-		// TODO History хранить не в cache
-		fsHistoryRepository repository = new fsHistoryRepository(coreContext.getCacheDir());
+		fsHistoryRepository repository = new fsHistoryRepository(
+				DataConstants.HISTORY_PATH);
+
 		historyManager = new SimpleHistoryManager(repository, PreferenceHelper.getHistorySize());
 
 		ParModuleID = PreferenceHelper.restoreStateString("ParModuleID");

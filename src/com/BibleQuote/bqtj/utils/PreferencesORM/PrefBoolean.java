@@ -11,7 +11,7 @@ import com.j256.ormlite.table.DatabaseTable;
  * To change this template use File | Settings | File Templates.
  */
 
-@DatabaseTable(tableName = "PrefBoolean")
+@DatabaseTable(tableName = "preferencesboolean")
 class PrefBoolean extends PrefT<Boolean> {
 
 	@DatabaseField(id = true)
