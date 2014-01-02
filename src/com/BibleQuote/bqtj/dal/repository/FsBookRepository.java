@@ -41,8 +41,9 @@ public class FsBookRepository implements IBookRepository<FsModule, FsBook> {
 					context.fillBooks(module, reader);
 
 				} catch (FileAccessException e) {
-					//Lod.e(TAG, String.format("Can't load books from module
-					// (%1$s, %2$s)", moduleID, moduleDatasourceID));
+					//Lod.e(TAG, String.format(
+					// "Can't load books from module (%1$s, %2$s)",
+					// moduleID, moduleDatasourceID));
 					throw new OpenModuleException(moduleID, moduleDatasourceID);
 
 				} finally {

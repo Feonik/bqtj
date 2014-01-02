@@ -31,6 +31,8 @@ import java.util.LinkedList;
 
 public class fsHistoryRepository implements IHistoryRepository {
 	private File dirPath;
+
+	// TODO historyFileName to DataConstants
 	private final String historyFileName = "history.dat";
 	private final String TAG = "fsHistoryRepository";
 

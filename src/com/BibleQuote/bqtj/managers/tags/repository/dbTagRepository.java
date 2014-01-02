@@ -1,4 +1,4 @@
-//package com.BibleQuote.bqtj.managers.tags.repository;
+//+package com.BibleQuote.bqtj.managers.tags.repository;
 //
 //import android.content.ContentValues;
 //import android.database.Cursor;

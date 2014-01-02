@@ -1,4 +1,4 @@
-////*
+//+//*
 //* Copyright (C) 2011 Scripture Software (http://scripturesoftware.org/)
 //*
 //* Licensed under the Apache License, Version 2.0 (the "License");

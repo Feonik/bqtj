@@ -2,10 +2,11 @@ package com.BibleQuote.bqtj.managers.bookmarks;
 
 import com.BibleQuote.bqtj.entity.BibleReference;
 import com.BibleQuote.bqtj.managers.bookmarks.repository.IBookmarksRepository;
-//import com.BibleQuote.bqtj.managers.bookmarks.repository.dbBookmarksTagsRepository;
+//+import com.BibleQuote.bqtj.managers.bookmarks.repository
+// .dbBookmarksTagsRepository;
 import com.BibleQuote.bqtj.managers.tags.Tag;
 import com.BibleQuote.bqtj.managers.tags.repository.ITagRepository;
-//import com.BibleQuote.bqtj.managers.tags.repository.dbTagRepository;
+//+import com.BibleQuote.bqtj.managers.tags.repository.dbTagRepository;
 
 import java.util.ArrayList;
 
@@ -34,7 +35,7 @@ public class BookmarksManager {
 	public void add(String OSISLink, String link, String tags) {
 		long bmID = add(OSISLink, link);
 		ArrayList<Long> tagIDs = getTagsIDs(tags);
-//		new dbBookmarksTagsRepository().add(bmID, tagIDs);
+//+		new dbBookmarksTagsRepository().add(bmID, tagIDs);
 	}
 
 	public void delete(Bookmark bookmark) {
@@ -60,7 +61,7 @@ public class BookmarksManager {
 	private ArrayList<Long> getTagsIDs(String tags) {
 		ArrayList<Long> result = new ArrayList<Long>();
 		for (String tag : tags.split(TAGS_DELIMETER)) {
-//			result.add(tagRepo.add(tag));
+//+			result.add(tagRepo.add(tag));
 		}
 		return result;
 	}

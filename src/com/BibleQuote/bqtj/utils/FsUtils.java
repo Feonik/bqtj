@@ -18,7 +18,7 @@ package com.BibleQuote.bqtj.utils;
 //import android.content.Context;
 import com.BibleQuote.bqtj.utils.Log;
 import com.BibleQuote.bqtj.exceptions.FileAccessException;
-//import org.apache.http.util.ByteArrayBuffer;
+//+import org.apache.http.util.ByteArrayBuffer;
 
 import java.io.*;
 import java.net.URL;
@@ -106,7 +106,7 @@ public class FsUtils {
 
 	}
 
-//	public static boolean loadContentFromURL(String fromURL, String toFile) {
+//+	public static boolean loadContentFromURL(String fromURL, String toFile) {
 //		try {
 //			URL url = new URL("http://bible-desktop.com/xml" + fromURL);
 //			File file = new File(toFile);
@@ -157,12 +157,14 @@ public class FsUtils {
 		return bReader;
 	}
 
-//	public static InputStream getAssetStream(Context context, String paramString)
+//+	public static InputStream getAssetStream(Context context,
+// String paramString)
 //			throws IOException {
 //		return context.getResources().getAssets().open(paramString);
 //	}
 
-//	public static String getAssetString(Context context, String paramString) {
+//+	public static String getAssetString(Context context,
+// String paramString) {
 //		InputStream localInputStream;
 //		try {
 //			localInputStream = context.getResources().getAssets()

@@ -20,7 +20,7 @@ package com.BibleQuote.bqtj.managers;
 //import com.BibleQuote.bqtj.ui.ServiceActivity;
 import com.BibleQuote.bqtj.CoreContext;
 import com.BibleQuote.bqtj.controllers.*;
-//import com.BibleQuote.bqtj.dal.repository.XmlTskRepository;
+//+import com.BibleQuote.bqtj.dal.repository.XmlTskRepository;
 import com.BibleQuote.bqtj.dal.repository.fsHistoryRepository;
 import com.BibleQuote.bqtj.entity.BibleBooksID;
 import com.BibleQuote.bqtj.entity.BibleReference;
@@ -75,6 +75,8 @@ public class Librarian {
 		chapterCtrl = libCtrl.getChapterCtrl();
 
 		LogTxt.i(TAG, "Create history manager and repository");
+
+		// TODO History хранить не в cache
 		fsHistoryRepository repository = new fsHistoryRepository(coreContext.getCacheDir());
 		historyManager = new SimpleHistoryManager(repository, PreferenceHelper.getHistorySize());
 
@@ -483,7 +485,8 @@ public class Librarian {
 
 				if (Thread.interrupted()) return;
 
-//				Intent intentStatusInfo = new Intent(ServiceActivity.BROADCAST_ACTION)
+//+				Intent intentStatusInfo = new Intent(ServiceActivity
+// .BROADCAST_ACTION)
 //						  .putExtra(ServiceActivity.STATUS_MSG, ServiceActivity.STATUS_INFO)
 //						  .putExtra(ServiceActivity.PASS_NUMBER, 1)
 //						  .putExtra(ServiceActivity.FROM_MODULE_ID, Module1.ShortName)
@@ -491,7 +494,8 @@ public class Librarian {
 //						  .putExtra(ServiceActivity.BOOK_ID, book.getID())
 //						  .putExtra(ServiceActivity.BOOK_NUMBER, iBookNumber + 1)
 //						  .putExtra(ServiceActivity.BOOKS_QTY, bookList.size());
-//				libCtrl.getUnit().getLibraryContext().getCoreContext().sendBroadcast(intentStatusInfo);
+//+				libCtrl.getUnit().getLibraryContext().getCoreContext()
+// .sendBroadcast(intentStatusInfo);
 
 
 				ArrayList<EtalonChapter> arlEtalonChapters = new ArrayList<EtalonChapter>(70);
@@ -557,7 +561,8 @@ public class Librarian {
 
 				if (Thread.interrupted()) return;
 
-//				Intent intentStatusInfo = new Intent(ServiceActivity.BROADCAST_ACTION)
+//+				Intent intentStatusInfo = new Intent(ServiceActivity
+// .BROADCAST_ACTION)
 //						  .putExtra(ServiceActivity.STATUS_MSG, ServiceActivity.STATUS_INFO)
 //						  .putExtra(ServiceActivity.PASS_NUMBER, 2)
 //						  .putExtra(ServiceActivity.FROM_MODULE_ID, Module2.ShortName)
@@ -565,7 +570,8 @@ public class Librarian {
 //						  .putExtra(ServiceActivity.BOOK_ID, book.getID())
 //						  .putExtra(ServiceActivity.BOOK_NUMBER, iBookNumber + 1)
 //						  .putExtra(ServiceActivity.BOOKS_QTY, bookList.size());
-//				libCtrl.getUnit().getLibraryContext().getCoreContext().sendBroadcast(intentStatusInfo);
+//+				libCtrl.getUnit().getLibraryContext().getCoreContext()
+// .sendBroadcast(intentStatusInfo);
 
 
 				ArrayList<EtalonChapter> arlEtalonChapters = new ArrayList<EtalonChapter>(70);
@@ -983,7 +989,8 @@ public class Librarian {
 	///////////////////////////////////////////////////////////////////////////
 	// SHARE
 
-//	public void shareText(Context context, TreeSet<Integer> selectVerses, Destination dest) {
+//+	public void shareText(Context context, TreeSet<Integer> selectVerses,
+// Destination dest) {
 //		if (getCurrChapter() == null) {
 //			return;
 //		}
@@ -1010,7 +1017,8 @@ public class Librarian {
 		historyManager.clearLinks();
 	}
 
-//	public LinkedHashMap<String, BibleReference> getCrossReference(BibleReference bReference)
+//+	public LinkedHashMap<String, BibleReference> getCrossReference
+// (BibleReference bReference)
 //			throws TskNotFoundException, BQUniversalException {
 //
 //		if (tskCtrl == null) {
