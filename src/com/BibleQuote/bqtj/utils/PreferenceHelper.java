@@ -15,7 +15,7 @@
  */
 package com.BibleQuote.bqtj.utils;
 
-import com.BibleQuote.bqtj.utils.Log;
+import com.BibleQuote.bqtj.utils.PreferencesORM.PreferenceDB;
 
 public class PreferenceHelper {
 

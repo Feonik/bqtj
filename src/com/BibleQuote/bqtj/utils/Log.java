@@ -9,11 +9,21 @@ package com.BibleQuote.bqtj.utils;
  */
 public class Log {
 
+	private static Log log;
+
 	private static ILogSys logSys;
 
-	public static void Init(ILogSys logSys) {
-		Log.logSys = logSys;
+	private Log() {
 	}
+
+	public static synchronized void Init(ILogSys logSys) {
+
+		if (log == null) {
+			log = new Log();
+			Log.logSys = logSys;
+		}
+	}
+
 
 	public static void d(String tag, String msg) {
 		logSys.d(tag, msg);

@@ -1,6 +1,6 @@
-package com.BibleQuote.bqtj.utils;
+package com.BibleQuote.bqtj.utils.PreferencesORM;
 
-import com.BibleQuote.bqtj.CoreContext;
+import com.BibleQuote.bqtj.utils.DataConstants;
 import com.j256.ormlite.dao.Dao;
 import com.j256.ormlite.dao.DaoManager;
 import com.j256.ormlite.field.DatabaseField;
@@ -20,77 +20,9 @@ import java.sql.SQLException;
  */
 public class PreferenceDB {
 
-	private class PrefT<T> {
-
-		@DatabaseField(id = true)
-		private String key;
-
-		@DatabaseField
-		private T value;
-
-		// Constructor without arguments is needed for ORMLite, not private
-		protected PrefT() {
-
-		}
-
-		protected PrefT(String key, T value) {
-			this.key = key;
-			this.value = value;
-		}
-
-		protected T getValue() {
-			return value;
-		}
-	}
-
-
-	@DatabaseTable(tableName = "PrefString")
-	private class PrefString extends PrefT<String> {
-
-		// Constructor without arguments is needed for ORMLite, not private
-		protected PrefString() {
-			super ();
-		}
-
-		public PrefString(String key, String value) {
-			super (key, value);
-		}
-	}
-
-	@DatabaseTable(tableName = "PrefInteger")
-	private class PrefInteger extends PrefT<Integer> {
-
-		// Constructor without arguments is needed for ORMLite, not private
-		protected PrefInteger() {
-			super ();
-		}
-
-		public PrefInteger(String key, Integer value) {
-			super (key, value);
-		}
-	}
-
-	@DatabaseTable(tableName = "PrefBoolean")
-	private class PrefBoolean extends PrefT<Boolean> {
-
-		// Constructor without arguments is needed for ORMLite, not private
-		protected PrefBoolean() {
-			super ();
-		}
-
-		public PrefBoolean(String key, Boolean value) {
-			super (key, value);
-		}
-	}
-
-
-	private interface DaoPrefT<T> extends Dao<T, String> {
-
-	}
-
-	private DaoPrefT<PrefString> DaoPrefString;
-	private DaoPrefT<PrefInteger> DaoPrefInteger;
-	private DaoPrefT<PrefBoolean> DaoPrefBoolean;
+	private Dao<PrefString, String> DaoPrefString;
+	private Dao<PrefInteger, String> DaoPrefInteger;
+	private Dao<PrefBoolean, String> DaoPrefBoolean;
 
 
 	public PreferenceDB() {
@@ -126,7 +58,7 @@ public class PreferenceDB {
 
 
 	private <D extends PrefT<T>, T> T getValue(
-			DaoPrefT<D> dao, String key, T defaultValue) {
+			Dao<D, String> dao, String key, T defaultValue) {
 
 		PrefT<T> prefT = null;
 
@@ -140,8 +72,8 @@ public class PreferenceDB {
 		return prefT == null ? defaultValue : prefT.getValue();
 	}
 
-	private <D extends PrefT> void setValue(
-			DaoPrefT<D> dao, D prefT) {
+
+	private <D extends PrefT> void setValue(Dao<D, String> dao, D prefT) {
 
 		try {
 			dao.createOrUpdate(prefT);
