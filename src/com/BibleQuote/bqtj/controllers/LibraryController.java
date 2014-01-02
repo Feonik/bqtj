@@ -4,6 +4,7 @@ import com.BibleQuote.bqtj.dal.*;
 import com.BibleQuote.bqtj.managers.EventManager;
 import com.BibleQuote.bqtj.modules.FsModule;
 import com.BibleQuote.bqtj.CoreContext;
+import com.BibleQuote.bqtj.utils.DataConstants;
 
 import java.io.File;
 
@@ -35,9 +36,9 @@ public class LibraryController {
 
 
 	public static LibraryController create(CoreContext coreContext) {
-		String libraryPath = CoreContext.FS_MODULES_PATH;
+		String libraryPath = DataConstants.FS_MODULES_PATH;
 
-		CacheContext cacheContext = new CacheContext(coreContext.getCacheDir(), CoreContext.LIBRARY_CACHE_FILE_NAME);
+		CacheContext cacheContext = new CacheContext(coreContext.getCacheDir(), DataConstants.LIBRARY_CACHE_FILE_NAME);
 		CacheModuleController<FsModule> cache = new CacheModuleController<FsModule>(cacheContext);
 
 		LibraryContext libraryContext = new FsLibraryContext(new File(libraryPath), coreContext, cache);

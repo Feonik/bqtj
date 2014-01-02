@@ -8,6 +8,7 @@ import com.BibleQuote.bqtj.listeners.ChangeModulesEvent;
 import com.BibleQuote.bqtj.modules.FsModule;
 import com.BibleQuote.bqtj.modules.Module;
 import com.BibleQuote.bqtj.CoreContext;
+import com.BibleQuote.bqtj.utils.DataConstants;
 import com.BibleQuote.bqtj.utils.LogTxt;
 import com.BibleQuote.bqtj.utils.OnlyBQIni;
 import com.BibleQuote.bqtj.utils.OnlyBQZipIni;
@@ -39,7 +40,7 @@ public class FsModuleRepository implements IModuleRepository<String, FsModule> {
 		// Load zip-compressed BQ-modules
 		ArrayList<String> bqZipIniFiles = context.SearchModules(new OnlyBQZipIni());
 		for (String bqZipIniFile : bqZipIniFiles) {
-			String moduleDataSourceId = bqZipIniFile + File.separator + CoreContext.FS_MODULE_INI_FILE_NAME;
+			String moduleDataSourceId = bqZipIniFile + File.separator + DataConstants.FS_MODULE_INI_FILE_NAME;
 			loadFileModule(moduleDataSourceId, newModuleSet);
 		}
 

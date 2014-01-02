@@ -100,7 +100,7 @@ public class PreferenceDB {
 			// (?) если базы нет, то она будет создана автоматически,
 			// (?) иначе будет создано подключение к существующей базе
 			ConnectionSource connectionSource =
-					new JdbcConnectionSource(CoreContext.DB_PREFERENCES_URL);
+					new JdbcConnectionSource(DataConstants.DB_PREFERENCES_URL);
 
 			try {
 				DaoPrefString =

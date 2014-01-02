@@ -26,14 +26,14 @@ public abstract class UpdateManager {
 	public void Init() {
 
 		// Инициализация каталога программы
-		File dir_modules = new File(CoreContext.FS_MODULES_PATH);
+		File dir_modules = new File(DataConstants.FS_MODULES_PATH);
 		if (!dir_modules.exists()) {
 			Log.i(TAG, String.format("Create directory %1$s", dir_modules));
 			dir_modules.mkdirs();
 		}
 
 		// Инициализация каталога базы данных настроек
-		File dirPreferences = new File(CoreContext.DB_PREFERENCES_PATH);
+		File dirPreferences = new File(DataConstants.DB_PREFERENCES_PATH);
 		if (!dirPreferences.exists()) {
 			Log.i(TAG, String.format("Create directory %1$s", dirPreferences));
 			dirPreferences.mkdirs();

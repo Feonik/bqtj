@@ -10,7 +10,7 @@ public class OnlyBQIni implements FileFilter {
 	private String filter;
 
 	public OnlyBQIni() {
-		this.filter = CoreContext.FS_MODULE_INI_FILE_NAME;
+		this.filter = DataConstants.FS_MODULE_INI_FILE_NAME;
 	}
 
 	public OnlyBQIni(String filter) {
