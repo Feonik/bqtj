@@ -48,7 +48,6 @@ public class LibraryUnitOfWork implements ILibraryUnitOfWork<String, FsModule, F
 		return this.cacheModuleController;
 	}
 
-	@Override
 	public EventManager getEventManager() {
 		return libraryContext.eventManager;
 	}

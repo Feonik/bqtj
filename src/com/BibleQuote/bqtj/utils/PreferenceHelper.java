@@ -22,9 +22,13 @@ public class PreferenceHelper {
 	private final static String TAG = "Share";
 	private static PreferenceDB preference;
 
-	static public void Init() {
-		preference = new PreferenceDB();
+	public static synchronized void Init() {
+
+		if (preference == null) {
+			preference = new PreferenceDB();
+		}
 	}
+
 
 	static public String restoreStateString(String key) {
 		Log.i(TAG, "restoreStateString(" + key + ")");

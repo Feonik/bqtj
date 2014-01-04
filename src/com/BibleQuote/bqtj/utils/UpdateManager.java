@@ -24,34 +24,6 @@ public abstract class UpdateManager {
 
 	public void Init() {
 
-		// Инициализация каталога модулей
-		File dirModules = new File(DataConstants.FS_MODULES_PATH);
-		if (!dirModules.exists()) {
-			Log.i(TAG, String.format("Create directory %1$s", dirModules));
-			dirModules.mkdirs();
-		}
-
-		// Инициализация каталога настроек
-		File dirPreferences = new File(DataConstants.DB_PREFERENCES_PATH);
-		if (!dirPreferences.exists()) {
-			Log.i(TAG, String.format("Create directory %1$s", dirPreferences));
-			dirPreferences.mkdirs();
-		}
-
-		// Инициализация каталога истории
-		File dirHistory = new File(DataConstants.HISTORY_PATH);
-		if (!dirHistory.exists()) {
-			Log.i(TAG, String.format("Create directory %1$s", dirHistory));
-			dirHistory.mkdirs();
-		}
-
-		// Инициализация каталога кэша
-		File dirCache = new File(DataConstants.CACHE_PATH);
-		if (!dirCache.exists()) {
-			Log.i(TAG, String.format("Create directory %1$s", dirCache));
-			dirCache.mkdirs();
-		}
-
 		int currVersionCode = PreferenceHelper.getAppVersionCode();
 
 		boolean updateModules = false;

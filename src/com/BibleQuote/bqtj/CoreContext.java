@@ -5,10 +5,7 @@ import com.BibleQuote.bqtj.managers.Librarian;
 import com.BibleQuote.bqtj.managers.bookmarks.repository.IBookmarksRepository;
 //+import com.BibleQuote.bqtj.managers.bookmarks.repository
 // .dbBookmarksRepository;
-import com.BibleQuote.bqtj.utils.DataConstants;
-import com.BibleQuote.bqtj.utils.LogTxt;
-import com.BibleQuote.bqtj.utils.PreferenceHelper;
-import com.BibleQuote.bqtj.utils.UpdateManager;
+import com.BibleQuote.bqtj.utils.*;
 
 import java.io.File;
 
@@ -41,17 +38,23 @@ public abstract class CoreContext {
 		// TODO log messages
 		LogTxt.i(TAG, "Init CoreContext...");
 
-		LogTxt.i(TAG, "Init DataConstants...");
-		DataConstants.Init();
+		// Инициализация каталога модулей
+		InitPath(DataConstants.FS_MODULES_PATH);
 
-		LogTxt.i(TAG, "Init application preference helper...");
+		// Инициализация каталога настроек
+		InitPath(DataConstants.DB_PREFERENCES_PATH);
+
+		// Инициализация каталога истории
+		InitPath(DataConstants.HISTORY_PATH);
+
+		// Инициализация каталога кэша
+		InitPath(DataConstants.CACHE_PATH);
+
 		initPreferenceHelper();
 
-		LogTxt.i(TAG, "Start update manager...");
-		getUpdateManager().Init();
+		initUpdateManager();
 
 		if (myLibrarian == null) {
-			LogTxt.i(TAG, "Init library...");
 			initLibrarian();
 		}
 	}
@@ -60,10 +63,49 @@ public abstract class CoreContext {
 
 		LogTxt.i(TAG, "RestartInit...");
 
-		LogTxt.i(TAG, "Init application preference helper...");
 		initPreferenceHelper();
-		LogTxt.i(TAG, "Init library...");
 		initLibrarian();
+	}
+
+	private void InitPath(String path) {
+
+		File filePath = new File(path);
+
+		if (!filePath.exists()) {
+			LogTxt.i(TAG, String.format("Create directory %1$s", filePath));
+
+			if (!filePath.mkdirs()) {
+				LogTxt.e(TAG, String.format("Can not create directory %1$s",
+						filePath));
+				System.exit(1);
+			}
+		}
+	}
+
+	private void initPreferenceHelper() {
+		LogTxt.i(TAG, "Init application preference helper...");
+		PreferenceHelper.Init();
+	}
+
+	private void initUpdateManager() {
+		LogTxt.i(TAG, "Start update manager...");
+		getUpdateManager().Init();
+	}
+
+	private void initLibrarian() {
+		LogTxt.i(TAG, "Init library...");
+		myLibrarian = new Librarian(coreContext);
+	}
+
+	public Librarian getLibrarian() {
+		if (myLibrarian == null) {
+			// Сборщик мусора уничтожил ссылки на myLibrarian и на PreferenceHelper
+			// Восстановим ссылки
+			LogTxt.i(TAG, "Recovery of library links...");
+			initPreferenceHelper();
+			initLibrarian();
+		}
+		return myLibrarian;
 	}
 
 	public IBookmarksRepository getBookmarksRepository() {
@@ -71,26 +113,6 @@ public abstract class CoreContext {
 //+		return new dbBookmarksRepository();
 		return null;
 	}
-
-
-	private void initLibrarian() {
-		myLibrarian = new Librarian(coreContext);
-	}
-
-	private void initPreferenceHelper() {
-		PreferenceHelper.Init();
-	}
-
-	public Librarian getLibrarian() {
-		if (myLibrarian == null) {
-			// Сборщик мусора уничтожил ссылки на myLibrarian и на PreferenceHelper
-			// Восстановим ссылки
-			initPreferenceHelper();
-			initLibrarian();
-		}
-		return myLibrarian;
-	}
-
 
 	public abstract String getAppVersionName();
 

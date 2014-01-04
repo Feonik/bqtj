@@ -6,23 +6,13 @@ import java.io.File;
 
 public final class DataConstants {
 
-	private static DataConstants dataConstants;
-
-	private DataConstants() {
-	}
-
-	public static synchronized void Init() {
-
-		if (dataConstants == null) {
-			dataConstants = new DataConstants();
-		}
-	}
-
-
 	// Internal Device Memory
 	public static final String APP_PACKAGE_DIR_NAME = "com.BibleQuote";
 	// External Device Memory
 	public static final String APP_DIR_NAME = "BibleQuote";
+
+	// for non-Android system
+	public static final String DATA_DIR_NAME = "Data";
 
 	public static final String APP_DATA_PATH =
 			CoreContext.getCoreContext().getAppDataPath();
